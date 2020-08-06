@@ -1,0 +1,13 @@
+commonKeyDepths = [
+{"name":"SCHLAGE","depths":[335,320,305,290,275,260,245,230,215,200],plugDia:500},
+{"name":"SARGENT","depths":[330,310,290,270,250,230,210,190,170,150],plugDia:498+2},
+{"name":"WEISER","depths":[315,297,279,261,243,225,207,189,171,153],plugDia:483},
+{"name":"KWIKSET","depths":[0,329,306,283,260,237,214,191],plugDia:498+3},
+{"name":"YALE","depths":[320,301,282,263,244,225,206,187,168,149],plugDia:502},
+{"name":"ARROW","depths":[312,298,284,270,256,242,228,214,200,186],plugDia:491},
+{"name":"WESLOCK","depths":[330,314,299,283,268,252,236,221],plugDia:484+2},
+{"name":"CORBIN Z SYS 70","depths":[0,339,311,283,255,227,199],plugDia:500},
+{"name":"CORBIN Z PRE SYS 70","depths":[213,339,325,311,297,283,269,255,241,227],plugDia:500},
+{"name":"CORBIN X PRE 70","depths":[207,333,319,305,291,277,263,249,235,221],plugDia:504},
+{"name":"RUSSWIN DH","depths":[341,326,311,296,281,266,251,236,221,206,191],plugDia:500}
+]
