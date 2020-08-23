@@ -342,7 +342,10 @@ function rule_1(rule,code) {
 	if(rule.name=="photoDelt") {
 		if(code[rule.pin1]-code[rule.pin2]<rule.range[0]
 		|| code[rule.pin1]-code[rule.pin2]>rule.range[1]) {
-			violates=true;
+			if(!rule.orAbs)
+				violates=true;
+			else
+				violates = !rule.orAbs.find(o=>o[0]==code[rule.pin1] && o[1]==code[rule.pin2])
 		}
 	}
 	
@@ -677,6 +680,7 @@ function rule_html(rule,ruleNum) {
 		+" to <span class='tpin'>pin</span> <input class='form-control' style='width:60px;display:inline-block;' type='number' onchange=\"propertyBind('"+ruleNum+"','pin2',parseInt(this.value)-1)\" value='"+(rule.pin2+1)+"' /> is within "
 		+"[<input class='form-control' style='width:60px;display:inline-block;' type='number' min='"+(1-numDepths)+"' max='"+(numDepths-1)+"' onchange=\"propertyBind('"+ruleNum+"','range',parseInt(this.value),0)\" value='"+(rule.range[0])+"' /> "
 		+",<input class='form-control' style='width:60px;display:inline-block;' type='number' min='"+(1-numDepths)+"' max='"+(numDepths-1)+"' onchange=\"propertyBind('"+ruleNum+"','range',parseInt(this.value),1)\" value='"+(rule.range[1])+"' />]"
+		+(rule.orAbs ? "<div style='display:inline-block;border:1px solid #888888;margin:3px;border-radius:10px;background-color:white;padding:6px;'>Or: " + rule.orAbs.map(o=>"<div style='display:inline-block;border:1px solid #888888;margin:3px;border-radius:10px;background-color:#FF4444;padding:6px;'><span class='tupin'>Pin</span> "+(rule.pin1+1)+" = <input class='form-control' style='width:60px;display:inline-block;' type='number' value='"+(o[0]+labelOffset)+"' readonly /> and <span class='tupin'>Pin</span> "+(rule.pin2+1)+" = <input class='form-control' style='width:60px;display:inline-block;' type='number' value='"+(o[1]+labelOffset)+"' readonly /></div>").join(" or ") + "</div>" : "")
 		list+=makeRuleHTML("#AAAAAA",s+"",spaceSize(space),ruleNum);
 	}
 	if(rule.name=="colourPin") {

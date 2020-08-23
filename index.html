@@ -481,6 +481,9 @@ function hash(str) {
 
 
 function doc_load() {
+	if(decodeURIComponent(window.location.search.substr(1)).length>5) {
+		Import(decodeURIComponent(window.location.search.substr(1)));
+	}
 	recalcSpace();
 }
 
